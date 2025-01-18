@@ -50,13 +50,70 @@
 
         <div class="row">
 
-            <div class="container col pt-3">
+            <!--Form-->
+            <section class="container col">
 
-            </div>
+                <div class="pt-4">
+                    <h1 class="fs-3">Richiesta Preventivo</h1>
+                    <h6 class="fw-normal">Compila il form per richiedere un preventivo per i nostri servizi di sviluppo</h6>
+                </div>
 
-            <div class="col-12 col-lg-3 pt-3">
+                <form action="#" method="get">
 
-                <!--Box-->
+                    <div>
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+
+                    <div class="pt-3">
+                        <label for="surname" class="form-label">Cognome</label>
+                        <input type="text" class="form-control" id="surname">
+                    </div>
+
+                    <div class="pt-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+
+                    <div class="pt-3 ">
+                        <label for="job" class="pb-2">Tipo di Lavoro</label>
+                        <select class="form-select" id="job" aria-label="Select input">
+                            <option selected>Seleziona il tipo di lavoro</option>
+                            <option value="1">Backed Development</option>
+                            <option value="2">Frontend Development</option>
+                            <option value="3">Project Analysis</option>
+                        </select>
+                    </div>
+
+                    <div class="pt-3">
+                        <label for="textarea" class="form-label">Textarea</label>
+                        <textarea class="form-control" id="textarea" rows="4"></textarea>
+                    </div>
+
+                    <div class="pt-3">
+                        <label for="promoCode" class="form-label">Codice Promozionale (opzionale)</label>
+                        <input type="text" class="form-control" id="promoCode">
+                    </div>
+
+                    <div class="pt-3">
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox">
+                        <label class="form-check-label" for="checkbox">Accetto la Privacy Policy</label>
+                    </div>
+
+                    <div class="pt-5 d-flex justify-content-evenly">
+                        <button type="button" class="btn btn-primary h-25">Calcola preventivo</button>
+                        <h5><span class="fw-semibold">Prezzo finale</span><br><span class="fw-bold fs-4">€ 200</span><span class="fw-light fs-4">,00</span></h5>
+
+                    </div>
+
+                </form>
+
+            </section>
+            <!--End-->
+
+            <!--Box-->
+            <section class="col-12 col-lg-3 pt-3">
+
                 <div class="card">
                     <div class="card-header fs-4">
                       
@@ -65,9 +122,9 @@
                         
                     </div>
                 </div>
-                <!--End-->
 
-            </div>
+            </section>
+            <!--End-->
 
         </div>
 
