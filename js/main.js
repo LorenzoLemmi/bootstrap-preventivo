@@ -5,79 +5,75 @@ const lastNameInput = document.querySelector("#surname");
 const emailInput = document.querySelector("#email");
 const jobSelect = document.querySelector("#job");
 const checkbox = document.querySelector("#checkbox");
+const submitButton = document.querySelector("#submitButton");
+const spinner = document.querySelector("#spinner");
+const buttonStatus = document.querySelector("#buttonStatus");
+
 
 form.addEventListener("submit", function(event) {
 
-  event.preventDefault();
+    event.preventDefault();
 
-  // Validate the form fields
-  if (!validateFirstName(firstNameInput.value)) {
-    alert("Per favore inserisci un nome valido");
-  } else if (!validateLastName(lastNameInput.value)) {
-    alert("Per favore inserisci un cognome valido");
-  } else if (!validateEmail(emailInput.value)) {
-    alert("Per favore inserisci un indirizzo email valido");
-  } else if (!validateJob(jobSelect.value)) {
-    alert("Per favore seleziona un tipo di lavoro");
-  } else if (!validateCheckbox(checkbox.checked)) {
-    alert("Per favore accetta i termini e le condizioni");
-  } else {
-    // If all fields are valid, submit the form
-    form.submit();
-  }
+    if (!validateFirstName(firstNameInput.value)) {
+        alert("Per favore inserisci un nome valido");
+        return;
+    } 
+    if (!validateLastName(lastNameInput.value)) {
+        alert("Per favore inserisci un cognome valido");
+        return;
+    } 
+    if (!validateEmail(emailInput.value)) {
+        alert("Per favore inserisci un indirizzo email valido");
+        return;
+    } 
+    if (!validateJob(jobSelect.value)) {
+        alert("Per favore seleziona un tipo di lavoro");
+        return;
+    } 
+    if (!validateCheckbox(checkbox.checked)) {
+        alert("Per favore accetta i termini e le condizioni");
+        return;
+    }
+
+    submitButton.disabled = true;
+    spinner.classList.remove("d-none");
+    buttonStatus.innerHTML = "Loading...";
+
+    setTimeout(() => {
+        spinner.classList.add("d-none");
+        buttonStatus.innerHTML = "Calcola preventivo";
+        submitButton.disabled = false;
+        calculatePrice();
+    }, 2000);
 });
 
-// Validation functions
 function validateFirstName(value) {
-  if (value === "" || !isNaN(value)) {
-    return false;
-  } else {
-    return true;
-  }
+    return value.trim() !== "" && isNaN(value);
 }
 
 function validateLastName(value) {
-  if (value === "" || !isNaN(value)) {
-    return false;
-  } else {
-    return true;
-  }
+    return value.trim() !== "" && isNaN(value);
 }
 
 function validateEmail(value) {
-  if (value === "" || !value.includes("@")) {
-    return false;
-  } else {
-    return true;
-  }
+    return value.trim() !== "" && value.includes("@");
 }
 
 function validateJob(value) {
-  if (value === "0") {
-    return false;
-  } else {
-    return true;
-  }
+    return value !== "0";
 }
 
 function validateCheckbox(checked) {
-  if (!checked) {
-    return false;
-  } else {
-    return true;
-  }
+    return checked;
 }
 
 
-
-// Function to calculate the final price
 function calculatePrice() {
     const job = document.querySelector("#job").value;
     const promoCode = document.querySelector("#promoCode").value.toUpperCase();
 
     let hourlyPrice = 0;
 
-     // Determine the hourly price based on the selected job type
     if (job === "1") {
         hourlyPrice = 20.50;
     } else if (job === "2") {
@@ -86,39 +82,15 @@ function calculatePrice() {
         hourlyPrice = 33.60;
     }
 
-    // Calculate the final price based on the hourly price and number of hours
     const hours = 10;
     let finalPrice = hours * hourlyPrice;
 
     if (["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"].includes(promoCode)) {
         finalPrice *= 0.75;
     } else if (promoCode !== "") {
-        alert("Iserisci un codice promozionale valido");
+        alert("Inserisci un codice promozionale valido");
     }
 
-    // Format the final price as a string with two decimal places and the currency symbol
-    const finalPriceFormatted = finalPrice.toFixed(2);
-    const finalPriceWithCurrency = `€${finalPriceFormatted.replace('.', ',')}`;
-
-     // Display the final price on the page
-    document.querySelector("#finalPrice").innerHTML = finalPriceWithCurrency;
+    const finalPriceFormatted = finalPrice.toFixed(2).replace('.', ',');
+    document.querySelector("#finalPrice").innerHTML = `€${finalPriceFormatted}`;
 }
-
-// Add an event listener to the submit button
-const submitButton = document.querySelector("#submitButton");
-submitButton.addEventListener("click", function(event) {
-
-    event.preventDefault();
-    submitButton.disabled = true;
-    const spinner = submitButton.querySelector("#spinner");
-    const status = submitButton.querySelector("#buttonStatus");
-    const originalStatusText = status.innerHTML;
-    spinner.classList.toggle("d-none");
-    status.innerHTML = `Loading...`;
-    setTimeout(() => {
-        spinner.classList.toggle("d-none");
-        status.innerHTML = originalStatusText;
-        submitButton.disabled = false;
-        calculatePrice();
-    }, 2000);
-});
