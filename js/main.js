@@ -6,7 +6,7 @@ const emailInput = document.querySelector("#email");
 const jobSelect = document.querySelector("#job");
 const checkbox = document.querySelector("#checkbox");
 
-form.addEventListener('submit', function(event) {
+form.addEventListener("submit", function(event) {
 
   event.preventDefault();
 
