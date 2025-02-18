@@ -58,43 +58,31 @@
                     <h6 class="fw-normal">Compila il form per richiedere un preventivo per i nostri servizi di sviluppo</h6>
                 </div>
 
-                <form action="#" method="get" class="pt-3" novalidate>
+                <form action="#" method="get" class="pt-3">
 
                     <div>
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="name" required>
-                        <div class="invalid-feedback">
-                            Per favore inserisci il tuo nome
-                        </div>
+                        <input type="text" class="form-control" id="name">
                     </div>
 
                     <div class="pt-3">
                         <label for="surname" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" id="surname" required>
-                        <div class="invalid-feedback">
-                            Per favore inserisci il tuo cognome
-                        </div>
+                        <input type="text" class="form-control" id="surname">
                     </div>
 
                     <div class="pt-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" required>
-                        <div class="invalid-feedback">
-                            Per favore inserisci la tua email
-                        </div>
+                        <input type="email" class="form-control" id="email">
                     </div>
 
                     <div class="pt-3 ">
                         <label for="job" class="pb-2">Tipo di Lavoro</label>
-                        <select class="form-select" id="job" required aria-label="Select input">
-                            <option selected disabled>Seleziona il tipo di lavoro</option>
-                            <option value="1">Backed Development</option>
+                        <select class="form-select" id="job" aria-label="Select input">
+                            <option selected disabled value="0">Seleziona il tipo di lavoro</option>
+                            <option value="1">Backend Development</option>
                             <option value="2">Frontend Development</option>
                             <option value="3">Project Analysis</option>
                         </select>
-                        <div class="invalid-feedback">
-                            Per favore seleziona il tipo di lavoro
-                        </div>
                     </div>
 
                     <div class="pt-3">
@@ -108,23 +96,20 @@
                     </div>
 
                     <div class="pt-3">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox" required>
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox">
                         <label class="form-check-label" for="checkbox">Accetto la Privacy Policy</label>
-                        <div class="invalid-feedback">
-                            Per favore accetta la privacy policy
-                        </div>
                     </div>
 
                     <div class="container pt-5">
                         <div class="row">
                             <div class="col mb-3 pt-2 text-center">
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" id="submitButton">
                                     <span class="spinner-border spinner-border-sm d-none" id="spinner" aria-hidden="true"></span>
                                     <span role="status" id="buttonStatus">Calcola preventivo</span>
                                 </button>
                             </div>
                             <div class="col-12 col-md-6 text-center">
-                                <h5><span class="fw-semibold">Prezzo finale</span><br><span class="fw-bold fs-4">€ 200</span><span class="fw-light fs-4">,00</span></h5>
+                                <h5><span class="fw-semibold">Prezzo finale</span><br><span class="fw-bold fs-4" id="finalPrice">€ 200<span class="fw-normal fs-5">,00</span></span></h5>
                             </div>
                         </div>
                     </div>
