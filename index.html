@@ -58,31 +58,43 @@
                     <h6 class="fw-normal">Compila il form per richiedere un preventivo per i nostri servizi di sviluppo</h6>
                 </div>
 
-                <form action="#" method="get" class="pt-3">
+                <form action="#" method="get" class="pt-3" novalidate>
 
                     <div>
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control" id="name" required>
+                        <div class="invalid-feedback">
+                            Per favore inserisci il tuo nome
+                        </div>
                     </div>
 
                     <div class="pt-3">
                         <label for="surname" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" id="surname">
+                        <input type="text" class="form-control" id="surname" required>
+                        <div class="invalid-feedback">
+                            Per favore inserisci il tuo cognome
+                        </div>
                     </div>
 
                     <div class="pt-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">
+                            Per favore inserisci la tua email
+                        </div>
                     </div>
 
                     <div class="pt-3 ">
                         <label for="job" class="pb-2">Tipo di Lavoro</label>
-                        <select class="form-select" id="job" aria-label="Select input">
-                            <option selected>Seleziona il tipo di lavoro</option>
+                        <select class="form-select" id="job" required aria-label="Select input">
+                            <option selected disabled>Seleziona il tipo di lavoro</option>
                             <option value="1">Backed Development</option>
                             <option value="2">Frontend Development</option>
                             <option value="3">Project Analysis</option>
                         </select>
+                        <div class="invalid-feedback">
+                            Per favore seleziona il tipo di lavoro
+                        </div>
                     </div>
 
                     <div class="pt-3">
@@ -96,8 +108,11 @@
                     </div>
 
                     <div class="pt-3">
-                        <input class="form-check-input" type="checkbox" value="" id="checkbox">
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox" required>
                         <label class="form-check-label" for="checkbox">Accetto la Privacy Policy</label>
+                        <div class="invalid-feedback">
+                            Per favore accetta la privacy policy
+                        </div>
                     </div>
 
                     <div class="container pt-5">

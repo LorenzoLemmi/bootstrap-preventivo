@@ -1,3 +1,5 @@
+
+
 const submitButton = document.querySelector("form > button");
 
 submitButton.addEventListener("click", function(event) {
@@ -10,6 +12,9 @@ submitButton.addEventListener("click", function(event) {
     spinner.classList.toggle("d-none");
     status.innerHTML = `Loading...`;
     setTimeout(() => {
-        
-    }, timeout);
-})
+        spinner.classList.toggle("d-none");
+        status.innerHTML = originalStatusText;
+        submitButton.disabled = false;
+
+    }, 2000);
+});
