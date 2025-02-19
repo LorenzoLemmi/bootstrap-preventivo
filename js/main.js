@@ -47,6 +47,7 @@ form.addEventListener("submit", function(event) {
     }, 2000);
 });
 
+//Functions to validate the form
 function validateFirstName(value) {
     return value.trim() !== "" && isNaN(value);
 }
@@ -67,7 +68,7 @@ function validateCheckbox(checked) {
     return checked;
 }
 
-
+//Functions to calculate the price
 function calculatePrice() {
     const job = document.querySelector("#job").value;
     const promoCode = document.querySelector("#promoCode").value.toUpperCase();
