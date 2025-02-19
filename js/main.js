@@ -31,7 +31,7 @@ form.addEventListener("submit", function(event) {
         return;
     } 
     if (!validateCheckbox(checkbox.checked)) {
-        alert("Per favore accetta i termini e le condizioni");
+        alert("Per favore accetta la privacy policy");
         return;
     }
 
